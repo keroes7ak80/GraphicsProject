@@ -1,0 +1,4 @@
+﻿  Source.cpp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  GraphicsProject.vcxproj -> D:\Computer Engineering\Graphics\GraphicsProject\Debug\GraphicsProject.exe
+  GraphicsProject.vcxproj -> D:\Computer Engineering\Graphics\GraphicsProject\Debug\GraphicsProject.pdb (Full PDB)
