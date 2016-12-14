@@ -5,7 +5,6 @@
 
 // Include GLEW
 #include <GL/glew.h>
-
 // Include GLFW
 #include <GLFW/glfw3.h>
 GLFWwindow* window;
@@ -115,10 +114,10 @@ int main(void)
 	Plate.GenBuffers();
 	Controls MyControls;
 	double Ballx = 0;
-	double Bally = 1;
-	double Ballz = -8;
-	long double movement = 0;
-	long double movement2 = 0;
+	double Bally = 4;
+	double Ballz = -32;
+	double movement = 0;
+	double movement2 = 0;
 	double movementA = 0;
 	double movement2A = 0;
 	double movementB = 0;
@@ -152,7 +151,7 @@ int main(void)
 		glDisableVertexAttribArray(1);
 
 		ball.PreDraw(BallTexture, TextureID);//this is made once
-		ball.Draw(MatrixID, vec3(Ballx, 0.5, Ballz), vec3(0.25, 0.25, 0.25));
+		ball.Draw(MatrixID, vec3(Ballx, 2, Ballz), vec3(0.25, 0.25, 0.25));
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
@@ -160,105 +159,105 @@ int main(void)
 		Car1.PreDraw(Car1Texture, TextureID);
 
 
-		if (movement > -17)
+		if (movement > -68)
 		{
-			Car1.Draw(MatrixID, vec3(8.5 + movement, 0.4, -6), vec3(1, 1, 1));
+			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, -24), vec3(1, 1, 1));
 			movement -= 0.01;
 			time += 0.01;
 		}
 		else movement = 0;
-		if (time > 8.5)
+		if (time > 34)
 		{
-			if (movement2 > -17)
+			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(8.5 + movement2, 0.4, -6), vec3(1, 1, 1));
+				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, -24), vec3(1, 1, 1));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
 		}
 		//-----------------------------1111111111111111111
-		if (movement > -17)
+		if (movement > -68)
 		{
-			Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 			movement -= 0.01;
 			time += 0.01;
 		}
 		else movement = 0;
-		if (time > 8.5)
+		if (time > 34)
 		{
-			if (movement2 > -17)
+			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
 		}
 		//----------------------------------111111111111111111111
 
-		if (movement > -17)
+		if (movement > -68)
 		{
-			Car1.Draw(MatrixID, vec3(8.5 + movement, 0.4, -1.5), vec3(1, 1, 1));
+			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, -6), vec3(1, 1, 1));
 			movement -= 0.01;
 			time += 0.01;
 		}
 		else movement = 0;
 		if (time > 8.5)
 		{
-			if (movement2 > -17)
+			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(8.5 + movement2, 0.4, -1.5), vec3(1, 1, 1));
+				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, -6), vec3(1, 1, 1));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
 		}
 		//-----------------------------2222222222222222222
-		if (movement > -17)
+		if (movement > -68)
 		{
-			Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 			movement -= 0.01;
 			time += 0.01;
 		}
 		else movement = 0;
 		if (time > 8.5)
 		{
-			if (movement2 > -17)
+			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
 		}
 		//----------------------------------22222222222222222
 
-		if (movement > -17)
+		if (movement > -68)
 		{
-			Car1.Draw(MatrixID, vec3(8.5 + movement, 0.4, 5), vec3(1, 1, 1));
+			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, 20), vec3(1, 1, 1));
 			movement -= 0.01;
 			time += 0.01;
 		}
 		else movement = 0;
 		if (time > 8.5)
 		{
-			if (movement2 > -17)
+			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(8.5 + movement2, 0.4, 5), vec3(1, 1, 1));
+				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, 20), vec3(1, 1, 1));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
 		}
 		//-----------------------------3333333333333
-		if (movement > -17)
+		if (movement > -68)
 		{
-			Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 			movement -= 0.01;
 			time += 0.01;
 		}
 		else movement = 0;
 		if (time > 8.5)
 		{
-			if (movement2 > -17)
+			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
@@ -295,7 +294,6 @@ int main(void)
 			Ballz -= 0.01;
 		if (glfwGetKey(window, GLFW_KEY_S) != GLFW_PRESS)
 			Ballz += 0.01;
-
 
 
 		// Swap buffers
