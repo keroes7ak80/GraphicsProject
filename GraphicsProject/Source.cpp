@@ -83,7 +83,7 @@ int main(void)
 	glBindVertexArray(VertexArrayID);
 	Shader MyShader;
 	// Create and compile our GLSL program from the shaders
-	GLuint programID =MyShader.LoadShaders("TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader");
+	GLuint programID = MyShader.LoadShaders("TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader");
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
@@ -98,14 +98,14 @@ int main(void)
 	GLuint Texture1 = MyTexture.loadDDS("uvmap.DDS");
 	GLuint  MapTexture = MyTexture.loadBMP_custom("model.bmp");
 	GLuint BallTexture = MyTexture.loadBMP_custom("Basketball.bmp");
-	GLuint Car1Texture= MyTexture.loadBMP_custom("col1.bmp");
+	GLuint Car1Texture = MyTexture.loadBMP_custom("col1.bmp");
 	GLuint PlateTexture = MyTexture.loadBMP_custom("wood.bmp");
 	// Read our .obj file
 	   // Won't be used at the moment.
 	Model  Model1("cube.obj");
 	Model  Map("Project Final b.obj");
 	Model ball("0basketball.obj");
-	Model Car1 ("OFF-Roadcar.obj");
+	Model Car1("OFF-Roadcar.obj");
 	Model Plate("Plate.obj");
 	// Load it into a VBO
 	Model1.GenBuffers();
@@ -117,7 +117,15 @@ int main(void)
 	double Ballx = 0;
 	double Bally = 1;
 	double Ballz = -8;
+	long double movement = 0;
+	long double movement2 = 0;
+	double movementA = 0;
+	double movement2A = 0;
+	double movementB = 0;
+	double movement2B = 0;
+	double time = 0;
 	do {
+
 
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -130,9 +138,9 @@ int main(void)
 		mat4 ProjectionMatrix = getProjectionMatrix();
 		mat4 ViewMatrix = getViewMatrix();
 		//Important Note : To Draw any model we must make pre draw Function then Draw the Disable glDisableVertexAttribArray for 1 and 0
-		
 
-	/*	Model1.PreDraw(Texture1,TextureID); 
+
+	/*	Model1.PreDraw(Texture1,TextureID);
 		Model1.Draw(MatrixID, vec3(0, 5, 0), vec3(1, 1, 1));
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
@@ -142,65 +150,136 @@ int main(void)
 		Map.Draw(MatrixID);
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
-		
+
 		ball.PreDraw(BallTexture, TextureID);//this is made once
 		ball.Draw(MatrixID, vec3(Ballx, 0.5, Ballz), vec3(0.25, 0.25, 0.25));
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
+
 		Car1.PreDraw(Car1Texture, TextureID);
 
-		Car1.Draw(MatrixID, vec3(-6, 0.4, -6), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(-2, 0.4, -6), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(2,0.4, -6), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(6, 0.4, -6), vec3(1, 1, 1));
-		
-		Car1.Draw(MatrixID, vec3(-7.7, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(-3.7, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(0.3, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(4.3, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+
+		if (movement > -17)
+		{
+			Car1.Draw(MatrixID, vec3(8.5 + movement, 0.4, -6), vec3(1, 1, 1));
+			movement -= 0.01;
+			time += 0.01;
+		}
+		else movement = 0;
+		if (time > 8.5)
+		{
+			if (movement2 > -17)
+			{
+				Car1.Draw(MatrixID, vec3(8.5 + movement2, 0.4, -6), vec3(1, 1, 1));
+				movement2 -= 0.01;
+			}
+			else movement2 = 0;
+		}
+		//-----------------------------1111111111111111111
+		if (movement > -17)
+		{
+			Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			movement -= 0.01;
+			time += 0.01;
+		}
+		else movement = 0;
+		if (time > 8.5)
+		{
+			if (movement2 > -17)
+			{
+				Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				movement2 -= 0.01;
+			}
+			else movement2 = 0;
+		}
+		//----------------------------------111111111111111111111
+
+		if (movement > -17)
+		{
+			Car1.Draw(MatrixID, vec3(8.5 + movement, 0.4, -1.5), vec3(1, 1, 1));
+			movement -= 0.01;
+			time += 0.01;
+		}
+		else movement = 0;
+		if (time > 8.5)
+		{
+			if (movement2 > -17)
+			{
+				Car1.Draw(MatrixID, vec3(8.5 + movement2, 0.4, -1.5), vec3(1, 1, 1));
+				movement2 -= 0.01;
+			}
+			else movement2 = 0;
+		}
+		//-----------------------------2222222222222222222
+		if (movement > -17)
+		{
+			Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			movement -= 0.01;
+			time += 0.01;
+		}
+		else movement = 0;
+		if (time > 8.5)
+		{
+			if (movement2 > -17)
+			{
+				Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				movement2 -= 0.01;
+			}
+			else movement2 = 0;
+		}
+		//----------------------------------22222222222222222
+
+		if (movement > -17)
+		{
+			Car1.Draw(MatrixID, vec3(8.5 + movement, 0.4, 5), vec3(1, 1, 1));
+			movement -= 0.01;
+			time += 0.01;
+		}
+		else movement = 0;
+		if (time > 8.5)
+		{
+			if (movement2 > -17)
+			{
+				Car1.Draw(MatrixID, vec3(8.5 + movement2, 0.4, 5), vec3(1, 1, 1));
+				movement2 -= 0.01;
+			}
+			else movement2 = 0;
+		}
+		//-----------------------------3333333333333
+		if (movement > -17)
+		{
+			Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			movement -= 0.01;
+			time += 0.01;
+		}
+		else movement = 0;
+		if (time > 8.5)
+		{
+			if (movement2 > -17)
+			{
+				Car1.Draw(MatrixID, vec3(-8.5 - movement, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				movement2 -= 0.01;
+			}
+			else movement2 = 0;
+		}
+		//----------------------------------333333333
 
 
-
-		Car1.Draw(MatrixID, vec3(-6, 0.4, -1.5), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(-2, 0.4, -1.5), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(2, 0.4, -1.5), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(6, 0.4, -1.5), vec3(1, 1, 1));
-
-		Car1.Draw(MatrixID, vec3(-7.7, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(-3.7, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(0.3, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(4.3, 0.4, -0.5), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-
-
-
-		Car1.Draw(MatrixID, vec3(-6, 0.4, 5), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(-2, 0.4, 5), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(2, 0.4, 5), vec3(1, 1, 1));
-		Car1.Draw(MatrixID, vec3(6, 0.4, 5), vec3(1, 1, 1));
-
-		Car1.Draw(MatrixID, vec3(-7.7, 0.4,6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(-3.7, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(0.3, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-		Car1.Draw(MatrixID, vec3(4.3, 0.4, 6), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-	
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
 		Plate.PreDraw(PlateTexture, TextureID); // this is made once 
-		Plate.Draw(MatrixID, vec3(-6, 0.3, -3.5), vec3(0.5, 0.5, 0.5),eulerAngleXYZ(0.0f,3.14f/2.0f,0.0f));
-		Plate.Draw(MatrixID, vec3(-2, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(-6, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(2, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(6, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 
 		Plate.Draw(MatrixID, vec3(-6, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(-2, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(2, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(6, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 
 
 		Plate.Draw(MatrixID, vec3(-6, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(-2, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(2, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(6, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 
@@ -219,7 +298,7 @@ int main(void)
 
 
 
-// Swap buffers
+		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
