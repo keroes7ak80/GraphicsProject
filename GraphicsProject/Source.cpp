@@ -187,7 +187,7 @@ int main(void)
 		{
 			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				Car1.Draw(MatrixID, vec3(-34 - movement2, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
@@ -222,7 +222,7 @@ int main(void)
 		{
 			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				Car1.Draw(MatrixID, vec3(-34 - movement2, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
@@ -257,7 +257,7 @@ int main(void)
 		{
 			if (movement2 > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				Car1.Draw(MatrixID, vec3(-34 - movement2, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
 				movement2 -= 0.01;
 			}
 			else movement2 = 0;
@@ -287,13 +287,13 @@ int main(void)
 		glDisableVertexAttribArray(1);
 
 		if (glfwGetKey(window, GLFW_KEY_A) != GLFW_PRESS)
-			Ballx -= 0.01;
+			Ballx -= 0.04;
 		if (glfwGetKey(window, GLFW_KEY_D) != GLFW_PRESS)
-			Ballx += 0.01;
+			Ballx += 0.04;
 		if (glfwGetKey(window, GLFW_KEY_W) != GLFW_PRESS)
-			Ballz -= 0.01;
+			Ballz -= 0.04;
 		if (glfwGetKey(window, GLFW_KEY_S) != GLFW_PRESS)
-			Ballz += 0.01;
+			Ballz += 0.04;
 
 
 		// Swap buffers
