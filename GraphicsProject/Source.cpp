@@ -122,7 +122,24 @@ int main(void)
 	double movement2A = 0;
 	double movementB = 0;
 	double movement2B = 0;
+	double movementC = 0;
+	double movement2C = 0;
+	double movementD = 0;
+	double movement2D = 0;
+	double movementE = 0;
+	double movement2E = 0;
+	double pmovement = 0;
+	double pmovement2 = 0;
+	double pmovementA = 0;
+	double pmovement2A = 0;
+	double pmovementB = 0;
+	double pmovement2B = 0;
 	double time = 0;
+	double CarGap = 34;
+	double PlateGap = 40;
+	double CarSpeed = 0.05;
+	double PlateSpeed = 0.05;
+	double plateY = 1.2;
 	do {
 
 
@@ -138,12 +155,6 @@ int main(void)
 		mat4 ViewMatrix = getViewMatrix();
 		//Important Note : To Draw any model we must make pre draw Function then Draw the Disable glDisableVertexAttribArray for 1 and 0
 
-
-	/*	Model1.PreDraw(Texture1,TextureID);
-		Model1.Draw(MatrixID, vec3(0, 5, 0), vec3(1, 1, 1));
-		glDisableVertexAttribArray(0);
-		glDisableVertexAttribArray(1);
-		*/
 
 		Map.PreDraw(MapTexture, TextureID); // this is made once 
 		Map.Draw(MatrixID);
@@ -162,105 +173,105 @@ int main(void)
 		if (movement > -68)
 		{
 			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, -24), vec3(1, 1, 1));
-			movement -= 0.01;
+			movement -= CarSpeed;
 			time += 0.01;
 		}
 		else movement = 0;
-		if (time > 34)
+		if (time > CarGap)
 		{
 			if (movement2 > -68)
 			{
 				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, -24), vec3(1, 1, 1));
-				movement2 -= 0.01;
+				movement2 -= CarSpeed;
 			}
 			else movement2 = 0;
 		}
 		//-----------------------------1111111111111111111
-		if (movement > -68)
+		if (movementA > -68)
 		{
-			Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-			movement -= 0.01;
+			Car1.Draw(MatrixID, vec3(-34 - movementA, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			movementA -= CarSpeed;
 			time += 0.01;
 		}
-		else movement = 0;
-		if (time > 34)
+		else movementA = 0;
+		if (time > CarGap)
 		{
-			if (movement2 > -68)
+			if (movement2A > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-34 - movement2, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-				movement2 -= 0.01;
+				Car1.Draw(MatrixID, vec3(-34 - movement2A, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				movement2A -= CarSpeed;
 			}
-			else movement2 = 0;
+			else movement2A = 0;
 		}
 		//----------------------------------111111111111111111111
 
-		if (movement > -68)
+		if (movementB > -68)
 		{
-			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, -6), vec3(1, 1, 1));
-			movement -= 0.01;
+			Car1.Draw(MatrixID, vec3(34 + movementB, 1.6, -6), vec3(1, 1, 1));
+			movementB -= CarSpeed;
 			time += 0.01;
 		}
-		else movement = 0;
-		if (time > 8.5)
+		else movementB = 0;
+		if (time > CarGap)
 		{
-			if (movement2 > -68)
+			if (movement2B > -68)
 			{
-				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, -6), vec3(1, 1, 1));
-				movement2 -= 0.01;
+				Car1.Draw(MatrixID, vec3(34 + movement2B, 1.6, -6), vec3(1, 1, 1));
+				movement2B -= CarSpeed;
 			}
-			else movement2 = 0;
+			else movement2B = 0;
 		}
 		//-----------------------------2222222222222222222
-		if (movement > -68)
+		if (movementC > -68)
 		{
-			Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-			movement -= 0.01;
+			Car1.Draw(MatrixID, vec3(-34 - movementC, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			movementC -= CarSpeed;
 			time += 0.01;
 		}
-		else movement = 0;
-		if (time > 8.5)
+		else movementC = 0;
+		if (time > CarGap)
 		{
-			if (movement2 > -68)
+			if (movement2C > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-34 - movement2, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-				movement2 -= 0.01;
+				Car1.Draw(MatrixID, vec3(-34 - movement2C, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				movement2C -= CarSpeed;
 			}
-			else movement2 = 0;
+			else movement2C = 0;
 		}
 		//----------------------------------22222222222222222
 
-		if (movement > -68)
+		if (movementD > -68)
 		{
-			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, 20), vec3(1, 1, 1));
-			movement -= 0.01;
+			Car1.Draw(MatrixID, vec3(34 + movementD, 1.6, 20), vec3(1, 1, 1));
+			movementD -= CarSpeed;
 			time += 0.01;
 		}
-		else movement = 0;
-		if (time > 8.5)
+		else movementD = 0;
+		if (time > CarGap)
 		{
-			if (movement2 > -68)
+			if (movement2D > -68)
 			{
-				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, 20), vec3(1, 1, 1));
-				movement2 -= 0.01;
+				Car1.Draw(MatrixID, vec3(34 + movement2D, 1.6, 20), vec3(1, 1, 1));
+				movement2D -= CarSpeed;
 			}
-			else movement2 = 0;
+			else movement2D = 0;
 		}
 		//-----------------------------3333333333333
-		if (movement > -68)
+		if (movementE > -68)
 		{
-			Car1.Draw(MatrixID, vec3(-34 - movement, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-			movement -= 0.01;
+			Car1.Draw(MatrixID, vec3(-34 - movementE, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+			movementE -= CarSpeed;
 			time += 0.01;
 		}
-		else movement = 0;
-		if (time > 8.5)
+		else movementE = 0;
+		if (time > CarGap)
 		{
-			if (movement2 > -68)
+			if (movement2E > -68)
 			{
-				Car1.Draw(MatrixID, vec3(-34 - movement2, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-				movement2 -= 0.01;
+				Car1.Draw(MatrixID, vec3(-34 - movement2E, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
+				movement2E -= CarSpeed;
 			}
-			else movement2 = 0;
+			else movement2E = 0;
 		}
 		//----------------------------------333333333
 
@@ -269,18 +280,36 @@ int main(void)
 		glDisableVertexAttribArray(1);
 
 		Plate.PreDraw(PlateTexture, TextureID); // this is made once 
-		Plate.Draw(MatrixID, vec3(-6, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(2, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(6, 0.3, -3.5), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 
-		Plate.Draw(MatrixID, vec3(-6, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(2, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(6, 0.3, 1), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		if (movement > -68)
+		{
+			Plate.Draw(MatrixID, vec3(34+pmovement, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+			pmovement -= PlateSpeed;
+			time += 0.01;
+		}
+		else pmovement = 0;
+		if (time > PlateGap)
+		{
+			if (pmovement2 > -68)
+			{
+				Plate.Draw(MatrixID, vec3(34+pmovement2, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+				pmovement2 -= PlateSpeed;
+			}
+			else pmovement2 = 0;
+		}
+		/*
+		Plate.Draw(MatrixID, vec3(-24, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(8, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(24, 1.2, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));*/
+
+		Plate.Draw(MatrixID, vec3(-24, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(8, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(24, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 
 
-		Plate.Draw(MatrixID, vec3(-6, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(2, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(6, 0.3, 3), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(-24, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(8, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(24, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 
 
 		glDisableVertexAttribArray(0);
