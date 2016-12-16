@@ -100,7 +100,7 @@ int main(void)
 	GLuint Car1Texture = MyTexture.loadBMP_custom("col1.bmp");
 	GLuint PlateTexture = MyTexture.loadBMP_custom("wood.bmp");
 	// Read our .obj file
-	   // Won't be used at the moment.
+	// Won't be used at the moment.
 	Model  Model1("cube.obj");
 	Model  Map("Project Final b.obj");
 	Model ball("0basketball.obj");
@@ -137,9 +137,25 @@ int main(void)
 	double time = 0;
 	double CarGap = 34;
 	double PlateGap = 40;
+	double PlateGap1 = 20;
 	double CarSpeed = 0.05;
-	double PlateSpeed = 0.05;
+	double PlateSpeed = 0.1;
+	double PlateSpeed1 = 1;
 	double plateY = 1.2;
+	///////////
+	double r = (3.3 / 4);
+	double Lball = Ballx +r;   //ball from left
+	double Tball = Ballx +r;
+	double Rball = Ballx -r;  //ball from right
+	double Bball = Ballx -r;
+	double w = (7.2 / 2);
+	double l = (10 / 2);
+	double p,Lp,Rp,Tp,Bp ;  //plate 1
+	double p2, Lp2, Rp2, Tp2, Bp2; //plate2
+	double p3, Lp3, Rp3, Tp3, Bp3; //plate3
+	double p4, Lp4, Rp4, Tp4, Bp4; //plate4
+	double p5, Lp5, Rp5, Tp5, Bp5; //plate5
+	double p6, Lp6, Rp6, Tp6, Bp6; //plate6
 	do {
 
 
@@ -280,11 +296,32 @@ int main(void)
 		glDisableVertexAttribArray(1);
 
 		Plate.PreDraw(PlateTexture, TextureID); // this is made once 
-
-		if (movement > -68)
+		//------------------------------1
+		if (pmovement > -68)
 		{
-			Plate.Draw(MatrixID, vec3(34+pmovement, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+
+			Plate.Draw(MatrixID, vec3(34 + pmovement, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 			pmovement -= PlateSpeed;
+
+			p = 34 + pmovement;  //plate 1
+			Lp = p + w;   //leftplat
+			Rp = p - w;    //right plate
+			Tp = -14 + l;    //upper plate
+			Bp = -14 - l;    //bottom plate
+
+			 Lball = Ballx + r;   
+			 Tball = Ballz + r;
+			 Rball = Ballx - r;  
+			 Bball = Ballz - r;
+			 if (Tball<-9.5 && Bball>-18){
+				 if (Lball > Rp &&  Rball < Lp && Tball<Tp && Bball>Bp){
+					 //on plate1
+					 Ballx -= PlateSpeed;
+				 }
+				 else {
+					 glfwTerminate();
+				 }
+			 }
 			time += 0.01;
 		}
 		else pmovement = 0;
@@ -292,46 +329,173 @@ int main(void)
 		{
 			if (pmovement2 > -68)
 			{
-				Plate.Draw(MatrixID, vec3(34+pmovement2, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+				Plate.Draw(MatrixID, vec3(34 + pmovement2, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 				pmovement2 -= PlateSpeed;
+				p2 = 34 + pmovement2;
+				Lp2 = p2 + w;
+				Rp2 = p2 - w;
+				Tp2 = -14 + l;
+				Bp2 = -14 - l;
+
+				Lball = Ballx + r;
+				Tball = Ballz + r;
+				Rball = Ballx - r;
+				Bball = Ballz - r;
+
+
+				if (Lball>Rp2 && Rball < Lp2 && Tball<Tp2 && Bball>Bp2){
+					//on plate2
+					Ballx -= PlateSpeed;
+				}
 			}
 			else pmovement2 = 0;
 		}
+		//------------------2
+		
+		if (pmovementA > -68)
+		{
+
+			Plate.Draw(MatrixID, vec3(34 + pmovementA, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+			pmovementA -= PlateSpeed;
+
+			p3 = 34 + pmovementA;  //plate 1
+			Lp3 = p3 + w;   //leftplat
+			Rp3 = p3 - w;    //right plate
+			Tp3 = 4 + l;    //upper plate
+			Bp3 = 4 - l;    //bottom plate
+
+			Lball = Ballx + r;
+			Tball = Ballz + r;
+			Rball = Ballx - r;
+			Bball = Ballz - r;
+
+
+			if (Lball > Rp3 &&  Rball<Lp3 && Tball<Tp3 && Bball>Bp3){
+				//on plate1
+				Ballx -= PlateSpeed;
+			}
+
+			time += 0.01;
+		}
+		else pmovementA = 0;
+		if (time > PlateGap1)
+		{
+			if (pmovement2A > -68)
+			{
+				Plate.Draw(MatrixID, vec3(34 + pmovement2A, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+				pmovement2A -= PlateSpeed;
+
+				p4 = 34 + pmovement2A;
+				Lp4 = p4 + w;
+				Rp4 = p4 - w;
+				Tp4 = 4 + l;
+				Bp4 = 4 - l;
+
+				Lball = Ballx + r;
+				Tball = Ballz + r;
+				Rball = Ballx - r;
+				Bball = Ballz - r;
+
+
+				if (Lball>Rp4 && Rball < Lp4 && Tball<Tp4 && Bball>Bp4){
+					//on plate2
+					Ballx -= PlateSpeed;
+				}
+			}
+			else pmovement2A = 0;
+		}
+
+		//-----------------------3
+
+		if (pmovementB > -68)
+		{
+
+			Plate.Draw(MatrixID, vec3(34 + pmovementB, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+			pmovementB -= PlateSpeed;
+			p5 = 34 + pmovementB;  //plate 1
+			Lp5 = p5 + w;   //leftplat
+			Rp5 = p5 - w;    //right plate
+			Tp5 = 12 + l;    //upper plate
+			Bp5 = 12 - l;    //bottom plate
+
+			Lball = Ballx + r;
+			Tball = Ballz + r;
+			Rball = Ballx - r;
+			Bball = Ballz - r;
+
+			if (Lball > Rp5 &&  Rball<Lp5 && Tball>Tp5 && Bball<Bp5){
+				Ballx -= PlateSpeed;
+			}
+
+			time += 0.01;
+		}
+		else pmovementB = 0;
+		if (time > PlateGap1)
+		{
+			if (pmovement2B > -68)
+			{
+				Plate.Draw(MatrixID, vec3(34 + pmovement2B, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+				pmovement2B -= PlateSpeed;
+
+				p6 = 34 + pmovement2B;  //plate 1
+				Lp6 = p5 + w;   //leftplat
+				Rp6 = p6 - w;    //right plate
+				Tp6 = 12 + l;    //upper plate
+				Bp6 = 12 - l;    //bottom plate
+
+				Lball = Ballx + r;
+				Tball = Ballz + r;
+				Rball = Ballx - r;
+				Bball = Ballz - r;
+
+				if (Lball > Rp6 &&  Rball<Lp6 && Tball>Tp6 && Bball<Bp6){
+					Ballx -= PlateSpeed;
+				}
+
+			}
+			else pmovement2B = 0;
+		}
+
+		
 		/*
 		Plate.Draw(MatrixID, vec3(-24, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(8, plateY, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(24, 1.2, -14), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));*/
 
+
+		/*
 		Plate.Draw(MatrixID, vec3(-24, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(8, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-		Plate.Draw(MatrixID, vec3(24, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
+		Plate.Draw(MatrixID, vec3(24, plateY, 4), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));*/
 
-
+		/*
 		Plate.Draw(MatrixID, vec3(-24, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(8, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
 		Plate.Draw(MatrixID, vec3(24, plateY, 12), vec3(0.5, 0.5, 0.5), eulerAngleXYZ(0.0f, 3.14f / 2.0f, 0.0f));
-
+		*/
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
 		if (glfwGetKey(window, GLFW_KEY_A) != GLFW_PRESS)
-			Ballx -= 0.04;
+			Ballx -= 0.1;
 		if (glfwGetKey(window, GLFW_KEY_D) != GLFW_PRESS)
-			Ballx += 0.04;
+			Ballx += 0.1;
 		if (glfwGetKey(window, GLFW_KEY_W) != GLFW_PRESS)
-			Ballz -= 0.04;
+			Ballz -= 0.1;
 		if (glfwGetKey(window, GLFW_KEY_S) != GLFW_PRESS)
-			Ballz += 0.04;
+			Ballz += 0.1;
 
-
+		/////////////////////plate
+		
+		
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
 	} // Check if the ESC key was pressed or the window was closed
 	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
+	glfwWindowShouldClose(window) == 0);
 
 	// Cleanup VBO and shader
 	Model1.DeleteBuffers();
@@ -347,4 +511,3 @@ int main(void)
 
 	return 0;
 }
-
