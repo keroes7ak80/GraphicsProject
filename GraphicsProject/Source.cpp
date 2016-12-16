@@ -173,7 +173,7 @@ int main(void)
 		if (movement > -68)
 		{
 			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, -24), vec3(1, 1, 1));
-			movement -= CarSpeed;
+			//movement -= CarSpeed;
 			time += 0.01;
 		}
 		else movement = 0;
