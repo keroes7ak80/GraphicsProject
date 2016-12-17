@@ -29,6 +29,7 @@ public:
 	vector<glm::vec3> normals;
 	GLuint vertexbuffer;
 	GLuint uvbuffer;
+	GLuint normalbuffer;
 	void DrawWithModel(GLuint MatrixID, mat4 ModelMatrix) // Draws model with modelmatrix attribute
 	{
 		mat4 MVP = getProjectionMatrix() * getViewMatrix() * ModelMatrix;
@@ -38,16 +39,19 @@ public:
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 		glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 	}
-	void Draw(GLuint MatrixID,vec3 Translate=vec3(0,0,0),vec3 Scale=vec3(1,1,1),mat4 Rotate= eulerAngleYXZ(0.0f, 0.0f, 0.0f)) //function that draw the model by taking its translation and scaling 
+	void Draw(GLuint MatrixID, GLuint ModelMatrixID, GLuint ViewMatrixID,vec3 Translate=vec3(0,0,0),vec3 Scale=vec3(1,1,1),mat4 Rotate= eulerAngleYXZ(0.0f, 0.0f, 0.0f)) //function that draw the model by taking its translation and scaling 
 	{
 		mat4 TranslationMatrix = translate(mat4(), Translate);
 		mat4 ScalingMatrix = scale(mat4(), Scale);
 		mat4 ModelMatrix =  TranslationMatrix*ScalingMatrix*Rotate;
 		mat4 MVP = getProjectionMatrix() * getViewMatrix() * ModelMatrix;
-
+		
 		// Send our transformation to the currently bound shader, 
 		// in the "MVP" uniform
+		
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+		glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+		glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
 		glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 	}
 	void GenBuffers()
@@ -60,6 +64,10 @@ public:
 		glGenBuffers(1, &uvbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
 		glBufferData(GL_ARRAY_BUFFER,uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+		
+		glGenBuffers(1, &normalbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+		glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0], GL_STATIC_DRAW);
 	}
 
 	void PreDraw(GLuint Texture,GLuint TextureID) //function that Enables vertex attrib array and Set our "myTextureSampler" sampler 
@@ -88,6 +96,16 @@ public:
 		glVertexAttribPointer(
 			1,                                // attribute
 			2,                                // size
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+		glVertexAttribPointer(
+			2,                                // attribute
+			3,                                // size
 			GL_FLOAT,                         // type
 			GL_FALSE,                         // normalized?
 			0,                                // stride
