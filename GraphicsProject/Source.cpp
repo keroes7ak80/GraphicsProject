@@ -100,7 +100,7 @@ int main(void)
 	GLuint Car1Texture = MyTexture.loadBMP_custom("col1.bmp");
 	GLuint PlateTexture = MyTexture.loadBMP_custom("wood.bmp");
 	// Read our .obj file
-	   // Won't be used at the moment.
+	// Won't be used at the moment.
 	Model  Model1("cube.obj");
 	Model  Map("Project Final b.obj");
 	Model ball("0basketball.obj");
@@ -130,8 +130,8 @@ int main(void)
 	double movement2E = 0;
 	double time = 0;
 	double gap = 34;
-	double ballrad=3.3/4;
-	double carwidth=2.1;
+	double ballrad = 3.3 / 4;
+	double carwidth = 2.1;
 	double CarSpeed = 0.05;
 	do {
 
@@ -149,7 +149,7 @@ int main(void)
 		//Important Note : To Draw any model we must make pre draw Function then Draw the Disable glDisableVertexAttribArray for 1 and 0
 
 
-	/*	Model1.PreDraw(Texture1,TextureID);
+		/*	Model1.PreDraw(Texture1,TextureID);
 		Model1.Draw(MatrixID, vec3(0, 5, 0), vec3(1, 1, 1));
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
@@ -172,10 +172,10 @@ int main(void)
 		if (movement > -68)
 		{
 			Car1.Draw(MatrixID, vec3(34 + movement, 1.6, -24), vec3(1, 1, 1));
-			double cen11x=34 + movement;
-			bool checkx1=(Ballx-ballrad<cen11x-carwidth&&Ballx+ballrad>cen11x-carwidth)||(Ballx+ballrad>cen11x+carwidth&&Ballx+ballrad<cen11x+carwidth)||(Ballx-ballrad>cen11x-carwidth&&Ballx+ballrad<cen11x+carwidth);
-			bool checkz1=(Ballz-ballrad<-24-0.7&&Ballz+ballrad>-24-0.7)||(Ballz-ballrad<-24+0.7&&Ballz+ballrad>-24+0.7)||(Ballz-ballrad>-24-0.7&&Ballz+ballrad<-24+0.7);
-			if(checkx1&&checkz1)
+			double cen11x = 34 + movement;
+			bool checkx1 = (Ballx - ballrad<cen11x - carwidth&&Ballx + ballrad>cen11x - carwidth) || (Ballx + ballrad>cen11x + carwidth&&Ballx + ballrad<cen11x + carwidth) || (Ballx - ballrad>cen11x - carwidth&&Ballx + ballrad<cen11x + carwidth);
+			bool checkz1 = (Ballz - ballrad<-24 - 0.7&&Ballz + ballrad>-24 - 0.7) || (Ballz - ballrad<-24 + 0.7&&Ballz + ballrad>-24 + 0.7) || (Ballz - ballrad>-24 - 0.7&&Ballz + ballrad<-24 + 0.7);
+			if (checkx1&&checkz1)
 			{
 				glfwTerminate();
 			}
@@ -188,13 +188,13 @@ int main(void)
 			if (movement2 > -68)
 			{
 				Car1.Draw(MatrixID, vec3(34 + movement2, 1.6, -24), vec3(1, 1, 1));
-			double cen21x=34 + movement2;
-			bool checkx2=(Ballx-ballrad<cen21x-carwidth&&Ballx+ballrad>cen21x-carwidth)||(Ballx+ballrad>cen21x+carwidth&&Ballx+ballrad<cen21x+carwidth)||(Ballx-ballrad>cen21x-carwidth&&Ballx+ballrad<cen21x+carwidth);
-			bool checkz2=(Ballz-ballrad<-24-0.7&&Ballz+ballrad>-24-0.7)||(Ballz-ballrad<-24+0.7&&Ballz+ballrad>-24+0.7)||(Ballz-ballrad>-24-0.7&&Ballz+ballrad<-24+0.7);
-			if(checkx2&&checkz2)
-			{
-				glfwTerminate();
-			}
+				double cen21x = 34 + movement2;
+				bool checkx2 = (Ballx - ballrad<cen21x - carwidth&&Ballx + ballrad>cen21x - carwidth) || (Ballx + ballrad>cen21x + carwidth&&Ballx + ballrad<cen21x + carwidth) || (Ballx - ballrad>cen21x - carwidth&&Ballx + ballrad<cen21x + carwidth);
+				bool checkz2 = (Ballz - ballrad<-24 - 0.7&&Ballz + ballrad>-24 - 0.7) || (Ballz - ballrad<-24 + 0.7&&Ballz + ballrad>-24 + 0.7) || (Ballz - ballrad>-24 - 0.7&&Ballz + ballrad<-24 + 0.7);
+				if (checkx2&&checkz2)
+				{
+					glfwTerminate();
+				}
 				movement2 -= CarSpeed;
 			}
 			else movement2 = 0;
@@ -203,15 +203,15 @@ int main(void)
 		if (movementA > -68)
 		{
 			Car1.Draw(MatrixID, vec3(-34 - movementA, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-			double cen12x=-34 - movementA;
-		    bool checkx3=(Ballx-ballrad<cen12x-carwidth&&Ballx+ballrad>cen12x-carwidth)||(Ballx+ballrad>cen12x+carwidth&&Ballx+ballrad<cen12x+carwidth)||(Ballx-ballrad>cen12x-carwidth&&Ballx+ballrad<cen12x+carwidth);
-			bool checkz3=(Ballz-ballrad<-20-0.7&&Ballz+ballrad>-20-0.7)||(Ballz-ballrad<-20+0.7&&Ballz+ballrad>-20+0.7)||(Ballz-ballrad>-20-0.7&&Ballz+ballrad<-20+0.7);
-			if(checkx3&&checkz3)
+			double cen12x = -34 - movementA;
+			bool checkx3 = (Ballx - ballrad<cen12x - carwidth&&Ballx + ballrad>cen12x - carwidth) || (Ballx + ballrad>cen12x + carwidth&&Ballx + ballrad<cen12x + carwidth) || (Ballx - ballrad>cen12x - carwidth&&Ballx + ballrad<cen12x + carwidth);
+			bool checkz3 = (Ballz - ballrad<-20 - 0.7&&Ballz + ballrad>-20 - 0.7) || (Ballz - ballrad<-20 + 0.7&&Ballz + ballrad>-20 + 0.7) || (Ballz - ballrad>-20 - 0.7&&Ballz + ballrad<-20 + 0.7);
+			if (checkx3&&checkz3)
 			{
 				glfwTerminate();
 			}
-				
-		    movementA -= CarSpeed;
+
+			movementA -= CarSpeed;
 			time += 0.01;
 		}
 		else movementA = 0;
@@ -220,14 +220,14 @@ int main(void)
 			if (movement2A > -68)
 			{
 				Car1.Draw(MatrixID, vec3(-34 - movement2A, 1.6, -20), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-				double cen22x=-34 - movement2A;
-				bool checkx4=(Ballx-ballrad<cen22x-carwidth&&Ballx+ballrad>cen22x-carwidth)||(Ballx+ballrad>cen22x+carwidth&&Ballx+ballrad<cen22x+carwidth)||(Ballx-ballrad>cen22x-carwidth&&Ballx+ballrad<cen22x+carwidth);
-			bool checkz4=(Ballz-ballrad<-20-0.7&&Ballz+ballrad>-20-0.7)||(Ballz-ballrad<-20+0.7&&Ballz+ballrad>-20+0.7)||(Ballz-ballrad>-20-0.7&&Ballz+ballrad<-20+0.7);
-			if(checkx4&&checkz4)
-			{
-				glfwTerminate();
-			}
-			
+				double cen22x = -34 - movement2A;
+				bool checkx4 = (Ballx - ballrad<cen22x - carwidth&&Ballx + ballrad>cen22x - carwidth) || (Ballx + ballrad>cen22x + carwidth&&Ballx + ballrad<cen22x + carwidth) || (Ballx - ballrad>cen22x - carwidth&&Ballx + ballrad<cen22x + carwidth);
+				bool checkz4 = (Ballz - ballrad<-20 - 0.7&&Ballz + ballrad>-20 - 0.7) || (Ballz - ballrad<-20 + 0.7&&Ballz + ballrad>-20 + 0.7) || (Ballz - ballrad>-20 - 0.7&&Ballz + ballrad<-20 + 0.7);
+				if (checkx4&&checkz4)
+				{
+					glfwTerminate();
+				}
+
 				movement2A -= CarSpeed;
 			}
 			else movement2A = 0;
@@ -237,10 +237,10 @@ int main(void)
 		if (movementB > -68)
 		{
 			Car1.Draw(MatrixID, vec3(34 + movementB, 1.6, -6), vec3(1, 1, 1));
-			double cen13x=34 + movementB;
-			bool checkx5=(Ballx-ballrad<cen13x-carwidth&&Ballx+ballrad>cen13x-carwidth)||(Ballx+ballrad>cen13x+carwidth&&Ballx+ballrad<cen13x+carwidth)||(Ballx-ballrad>cen13x-carwidth&&Ballx+ballrad<cen13x+carwidth);
-			bool checkz5=(Ballz-ballrad<-6-0.7&&Ballz+ballrad>-6-0.7)||(Ballz-ballrad<-6+0.7&&Ballz+ballrad>-6+0.7)||(Ballz-ballrad>-6-0.7&&Ballz+ballrad<-6+0.7);
-			if(checkx5&&checkz5)
+			double cen13x = 34 + movementB;
+			bool checkx5 = (Ballx - ballrad<cen13x - carwidth&&Ballx + ballrad>cen13x - carwidth) || (Ballx + ballrad>cen13x + carwidth&&Ballx + ballrad<cen13x + carwidth) || (Ballx - ballrad>cen13x - carwidth&&Ballx + ballrad<cen13x + carwidth);
+			bool checkz5 = (Ballz - ballrad<-6 - 0.7&&Ballz + ballrad>-6 - 0.7) || (Ballz - ballrad<-6 + 0.7&&Ballz + ballrad>-6 + 0.7) || (Ballz - ballrad>-6 - 0.7&&Ballz + ballrad<-6 + 0.7);
+			if (checkx5&&checkz5)
 			{
 				glfwTerminate();
 			}
@@ -253,13 +253,13 @@ int main(void)
 			if (movement2B > -68)
 			{
 				Car1.Draw(MatrixID, vec3(34 + movement2B, 1.6, -6), vec3(1, 1, 1));
-				double cen23x=34 + movement2B;
-			bool checkx6=(Ballx-ballrad<cen23x-carwidth&&Ballx+ballrad>cen23x-carwidth)||(Ballx+ballrad>cen23x+carwidth&&Ballx+ballrad<cen23x+carwidth)||(Ballx-ballrad>cen23x-carwidth&&Ballx+ballrad<cen23x+carwidth);
-			bool checkz6=(Ballz-ballrad<-6-0.7&&Ballz+ballrad>-6-0.7)||(Ballz-ballrad<-6+0.7&&Ballz+ballrad>-6+0.7)||(Ballz-ballrad>-6-0.7&&Ballz+ballrad<-6+0.7);
-			if(checkx6&&checkz6)
-			{
-				glfwTerminate();
-			}
+				double cen23x = 34 + movement2B;
+				bool checkx6 = (Ballx - ballrad<cen23x - carwidth&&Ballx + ballrad>cen23x - carwidth) || (Ballx + ballrad>cen23x + carwidth&&Ballx + ballrad<cen23x + carwidth) || (Ballx - ballrad>cen23x - carwidth&&Ballx + ballrad<cen23x + carwidth);
+				bool checkz6 = (Ballz - ballrad<-6 - 0.7&&Ballz + ballrad>-6 - 0.7) || (Ballz - ballrad<-6 + 0.7&&Ballz + ballrad>-6 + 0.7) || (Ballz - ballrad>-6 - 0.7&&Ballz + ballrad<-6 + 0.7);
+				if (checkx6&&checkz6)
+				{
+					glfwTerminate();
+				}
 				movement2B -= CarSpeed;
 			}
 			else movement2B = 0;
@@ -268,10 +268,10 @@ int main(void)
 		if (movementC > -68)
 		{
 			Car1.Draw(MatrixID, vec3(-34 - movementC, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-			double cen14x=-34 - movementC;
-			bool checkx7=(Ballx-ballrad<cen14x-carwidth&&Ballx+ballrad>cen14x-carwidth)||(Ballx+ballrad>cen14x+carwidth&&Ballx+ballrad<cen14x+carwidth)||(Ballx-ballrad>cen14x-carwidth&&Ballx+ballrad<cen14x+carwidth);
-			bool checkz7=(Ballz-ballrad<-2-0.7&&Ballz+ballrad>-2-0.7)||(Ballz-ballrad<-2+0.7&&Ballz+ballrad>-2+0.7)||(Ballz-ballrad>-2-0.7&&Ballz+ballrad<-2+0.7);
-			if(checkx7&&checkz7)
+			double cen14x = -34 - movementC;
+			bool checkx7 = (Ballx - ballrad<cen14x - carwidth&&Ballx + ballrad>cen14x - carwidth) || (Ballx + ballrad>cen14x + carwidth&&Ballx + ballrad<cen14x + carwidth) || (Ballx - ballrad>cen14x - carwidth&&Ballx + ballrad<cen14x + carwidth);
+			bool checkz7 = (Ballz - ballrad<-2 - 0.7&&Ballz + ballrad>-2 - 0.7) || (Ballz - ballrad<-2 + 0.7&&Ballz + ballrad>-2 + 0.7) || (Ballz - ballrad>-2 - 0.7&&Ballz + ballrad<-2 + 0.7);
+			if (checkx7&&checkz7)
 			{
 				glfwTerminate();
 			}
@@ -284,13 +284,13 @@ int main(void)
 			if (movement2C > -68)
 			{
 				Car1.Draw(MatrixID, vec3(-34 - movement2C, 1.6, -2), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-				double cen24x=-34 - movement2C;
-			bool checkx8=(Ballx-ballrad<cen24x-carwidth&&Ballx+ballrad>cen24x-carwidth)||(Ballx+ballrad>cen24x+carwidth&&Ballx+ballrad<cen24x+carwidth)||(Ballx-ballrad>cen24x-carwidth&&Ballx+ballrad<cen24x+carwidth);
-			bool checkz8=(Ballz-ballrad<-2-0.7&&Ballz+ballrad>-2-0.7)||(Ballz-ballrad<-2+0.7&&Ballz+ballrad>-2+0.7)||(Ballz-ballrad>-2-0.7&&Ballz+ballrad<-2+0.7);
-			if(checkx8&&checkz8)
-			{
-				glfwTerminate();
-			}
+				double cen24x = -34 - movement2C;
+				bool checkx8 = (Ballx - ballrad<cen24x - carwidth&&Ballx + ballrad>cen24x - carwidth) || (Ballx + ballrad>cen24x + carwidth&&Ballx + ballrad<cen24x + carwidth) || (Ballx - ballrad>cen24x - carwidth&&Ballx + ballrad<cen24x + carwidth);
+				bool checkz8 = (Ballz - ballrad<-2 - 0.7&&Ballz + ballrad>-2 - 0.7) || (Ballz - ballrad<-2 + 0.7&&Ballz + ballrad>-2 + 0.7) || (Ballz - ballrad>-2 - 0.7&&Ballz + ballrad<-2 + 0.7);
+				if (checkx8&&checkz8)
+				{
+					glfwTerminate();
+				}
 				movement2C -= CarSpeed;
 			}
 			else movement2C = 0;
@@ -300,10 +300,10 @@ int main(void)
 		if (movementD > -68)
 		{
 			Car1.Draw(MatrixID, vec3(34 + movementD, 1.6, 20), vec3(1, 1, 1));
-			double cen15x=34 + movementD;
-			bool checkx9=(Ballx-ballrad<cen15x-carwidth&&Ballx+ballrad>cen15x-carwidth)||(Ballx+ballrad>cen15x+carwidth&&Ballx+ballrad<cen15x+carwidth)||(Ballx-ballrad>cen15x-carwidth&&Ballx+ballrad<cen15x+carwidth);
-			bool checkz9=(Ballz-ballrad<20-0.7&&Ballz+ballrad>20-0.7)||(Ballz-ballrad<20+0.7&&Ballz+ballrad>20+0.7)||(Ballz-ballrad>20-0.7&&Ballz+ballrad<20+0.7);
-			if(checkx9&&checkz9)
+			double cen15x = 34 + movementD;
+			bool checkx9 = (Ballx - ballrad<cen15x - carwidth&&Ballx + ballrad>cen15x - carwidth) || (Ballx + ballrad>cen15x + carwidth&&Ballx + ballrad<cen15x + carwidth) || (Ballx - ballrad>cen15x - carwidth&&Ballx + ballrad<cen15x + carwidth);
+			bool checkz9 = (Ballz - ballrad<20 - 0.7&&Ballz + ballrad>20 - 0.7) || (Ballz - ballrad<20 + 0.7&&Ballz + ballrad>20 + 0.7) || (Ballz - ballrad>20 - 0.7&&Ballz + ballrad<20 + 0.7);
+			if (checkx9&&checkz9)
 			{
 				glfwTerminate();
 			}
@@ -316,13 +316,13 @@ int main(void)
 			if (movement2D > -68)
 			{
 				Car1.Draw(MatrixID, vec3(34 + movement2D, 1.6, 20), vec3(1, 1, 1));
-				double cen25x=34 + movement2D;
-			bool checkx10=(Ballx-ballrad<cen25x-carwidth&&Ballx+ballrad>cen25x-carwidth)||(Ballx+ballrad>cen25x+carwidth&&Ballx+ballrad<cen25x+carwidth)||(Ballx-ballrad>cen25x-carwidth&&Ballx+ballrad<cen25x+carwidth);
-			bool checkz10=(Ballz-ballrad<20-0.7&&Ballz+ballrad>20-0.7)||(Ballz-ballrad<20+0.7&&Ballz+ballrad>20+0.7)||(Ballz-ballrad>20-0.7&&Ballz+ballrad<20+0.7);
-			if(checkx10&&checkz10)
-			{
-				glfwTerminate();
-			}
+				double cen25x = 34 + movement2D;
+				bool checkx10 = (Ballx - ballrad<cen25x - carwidth&&Ballx + ballrad>cen25x - carwidth) || (Ballx + ballrad>cen25x + carwidth&&Ballx + ballrad<cen25x + carwidth) || (Ballx - ballrad>cen25x - carwidth&&Ballx + ballrad<cen25x + carwidth);
+				bool checkz10 = (Ballz - ballrad<20 - 0.7&&Ballz + ballrad>20 - 0.7) || (Ballz - ballrad<20 + 0.7&&Ballz + ballrad>20 + 0.7) || (Ballz - ballrad>20 - 0.7&&Ballz + ballrad<20 + 0.7);
+				if (checkx10&&checkz10)
+				{
+					glfwTerminate();
+				}
 				movement2D -= CarSpeed;
 			}
 			else movement2D = 0;
@@ -331,10 +331,10 @@ int main(void)
 		if (movementE > -68)
 		{
 			Car1.Draw(MatrixID, vec3(-34 - movementE, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-			double cen16x=-34 - movementE;
-			bool checkx11=(Ballx-ballrad<cen16x-carwidth&&Ballx+ballrad>cen16x-carwidth)||(Ballx+ballrad>cen16x+carwidth&&Ballx+ballrad<cen16x+carwidth)||(Ballx-ballrad>cen16x-carwidth&&Ballx+ballrad<cen16x+carwidth);
-			bool checkz11=(Ballz-ballrad<24-0.7&&Ballz+ballrad>24-0.7)||(Ballz-ballrad<24+0.7&&Ballz+ballrad>24+0.7)||(Ballz-ballrad>24-0.7&&Ballz+ballrad<24+0.7);
-			if(checkx11&&checkz11)
+			double cen16x = -34 - movementE;
+			bool checkx11 = (Ballx - ballrad<cen16x - carwidth&&Ballx + ballrad>cen16x - carwidth) || (Ballx + ballrad>cen16x + carwidth&&Ballx + ballrad<cen16x + carwidth) || (Ballx - ballrad>cen16x - carwidth&&Ballx + ballrad<cen16x + carwidth);
+			bool checkz11 = (Ballz - ballrad<24 - 0.7&&Ballz + ballrad>24 - 0.7) || (Ballz - ballrad<24 + 0.7&&Ballz + ballrad>24 + 0.7) || (Ballz - ballrad>24 - 0.7&&Ballz + ballrad<24 + 0.7);
+			if (checkx11&&checkz11)
 			{
 				glfwTerminate();
 			}
@@ -347,13 +347,13 @@ int main(void)
 			if (movement2E > -68)
 			{
 				Car1.Draw(MatrixID, vec3(-34 - movement2E, 1.6, 24), vec3(1, 1, 1), eulerAngleXYZ(0.0f, 3.14f, 0.0f));
-				double cen26x=-34 - movement2E;
-			bool checkx12=(Ballx-ballrad<cen26x-carwidth&&Ballx+ballrad>cen26x-carwidth)||(Ballx+ballrad>cen26x+carwidth&&Ballx+ballrad<cen26x+carwidth)||(Ballx-ballrad>cen26x-carwidth&&Ballx+ballrad<cen26x+carwidth);
-			bool checkz12=(Ballz-ballrad<24-0.7&&Ballz+ballrad>24-0.7)||(Ballz-ballrad<24+0.7&&Ballz+ballrad>24+0.7)||(Ballz-ballrad>24-0.7&&Ballz+ballrad<24+0.7);
-			if(checkx12&&checkz12)
-			{
-				glfwTerminate();
-			}
+				double cen26x = -34 - movement2E;
+				bool checkx12 = (Ballx - ballrad<cen26x - carwidth&&Ballx + ballrad>cen26x - carwidth) || (Ballx + ballrad>cen26x + carwidth&&Ballx + ballrad<cen26x + carwidth) || (Ballx - ballrad>cen26x - carwidth&&Ballx + ballrad<cen26x + carwidth);
+				bool checkz12 = (Ballz - ballrad<24 - 0.7&&Ballz + ballrad>24 - 0.7) || (Ballz - ballrad<24 + 0.7&&Ballz + ballrad>24 + 0.7) || (Ballz - ballrad>24 - 0.7&&Ballz + ballrad<24 + 0.7);
+				if (checkx12&&checkz12)
+				{
+					glfwTerminate();
+				}
 				movement2E -= CarSpeed;
 			}
 			else movement2E = 0;
@@ -391,10 +391,10 @@ int main(void)
 			Ballz -= 0.04;
 		if (glfwGetKey(window, GLFW_KEY_S) != GLFW_PRESS)
 			Ballz += 0.04;
-         
+
 		/*if((Ballx+ballrad>cen11-carwidth&&Ballx-ballrad<cen11+carwidth)||(Ballx+ballrad>cen21-carwidth&&Ballx-ballrad<cen21+carwidth)||(Ballx-ballrad>cen12+carwidth&&Ballx-ballrad<cen12+carwidth)||(Ballx+ballrad>cen22-carwidth&&Ballx-ballrad<cen22+carwidth)||(Ballx+ballrad>cen13-carwidth&&Ballx-ballrad<cen13+carwidth)||(Ballx+ballrad>cen23-carwidth&&Ballx-ballrad<cen23+carwidth)||(Ballx+ballrad>cen14-carwidth&&Ballx-ballrad<cen14+carwidth)||(Ballx+ballrad>cen24-carwidth&&Ballx-ballrad<cen24+carwidth)||(Ballx+ballrad>cen15-carwidth&&Ballx-ballrad<cen15+carwidth)||(Ballx+ballrad>cen25-carwidth&&Ballx-ballrad<cen25+carwidth)||(Ballx+ballrad>cen16-carwidth&&Ballx-ballrad<cen16+carwidth)||(Ballx+3.3/4>cen26-carwidth&&Ballx-ballrad<cen26+carwidth))
 		{
-             
+
 		}*/
 
 		// Swap buffers
