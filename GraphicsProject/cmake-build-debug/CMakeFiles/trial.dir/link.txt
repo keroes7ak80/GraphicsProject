@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/trial.dir/Source.cpp.o CMakeFiles/trial.dir/CMakeFiles/3.6.2/CompilerIdCXX/CMakeCXXCompilerId.cpp.o  -o trial -rdynamic -lGL -lGLEW -lglfw -lSOIL -lassimp 

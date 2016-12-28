@@ -21,10 +21,7 @@ using namespace glm;
 #include"Model.h"
 #include"Controls.h"
 
-void msg()
-{
 
-}
 int main(void)
 {
 	// Initialise GLFW
@@ -120,9 +117,7 @@ int main(void)
 	Plate.GenBuffers();
 	Image.GenBuffers();
 	Controls MyControls;
-	double Ballx = 0;
-	double Bally = 4;
-	double Ballz = -32;
+	double Bally = 2;
 	double movement = 0;
 	double movement2 = 0;
 	double movementA = 0;
@@ -142,15 +137,20 @@ int main(void)
 	double pmovementB = 0;
 	double pmovement2B = 0;
 	double time = 0;
+	double ZZ = 0;
 	double CarGap = 34;
 	double PlateGap = 40;
 	double PlateGap1 = 20;
 	double CarSpeed = 0.05;
-	double CarSpeed1 = CarSpeed+0.01;
+	double BallSpeed = 0.1;
+	double CarSpeed1 = CarSpeed+0.015;
 	double CarSpeed2 = CarSpeed + 0.02;
 	double PlateSpeed = 0.05;
-	double PlateSpeed1 = PlateSpeed+0.02;
+	double PlateSpeed1 = PlateSpeed+0.035;
+	int xxpos;
+		int yypos;
 	double plateY = 1.2;
+	double Z = 0;
 	///////////
 	double x = 0;
 	double r = (3.3 / 4);
@@ -168,31 +168,28 @@ int main(void)
 	double p6, Lp6, Rp6, Tp6, Bp6; //plate6
 	double ballrad = 3.3 / 4;
 	double carwidth = 2.1;
-	while (glfwGetKey(window, GLFW_KEY_1) != GLFW_PRESS&&glfwGetKey(window, GLFW_KEY_2) != GLFW_PRESS&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
-	{
-		glm::vec3 lightPos = glm::vec3(0, 0, -50);
-		glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
+float rotateX=0.0f;
+float rotateZ=0.0f;
+	//while (glfwGetKey(window, GLFW_KEY_1) != GLFW_PRESS&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
+	//{
+		//glm::vec3 lightPos = glm::vec3(0, 0, -50);
+		//glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 		//MyControls.computeMatricesFromInputs();
 		// Clear the screen
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// Use our shader
-		//glUseProgram(programID);
-		if (glfwGetKey(window, GLFW_KEY_2) != GLFW_PRESS)
-		{
-			CarSpeed = 0.08;
-			PlateSpeed = 0.08;
-		}
-		Image.PreDraw(Image1, TextureID);
-		Image.Draw(MatrixID, ModelMatrixID, ViewMatrixID,vec3(0,0,0),vec3(1,1,1), eulerAngleXYZ(3.14f/2.0f,0.0f, 0.0f));
 
-		// Swap buffers
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
+		//Image.PreDraw(Image1, TextureID);
+		//Image.Draw(MatrixID, ModelMatrixID, ViewMatrixID,vec3(0,0,0),vec3(1,1,1), eulerAngleXYZ(3.14f/2.0f,0.0f, 0.0f));
+
+	//	 Swap buffers
+	//	glfwSwapBuffers(window);
 	
-	do {
-
+//}
+	
+	do
+	{
+		
 		glm::vec3 lightPos = glm::vec3(34, 50, -20);
 		glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
@@ -217,7 +214,7 @@ int main(void)
 
 
 		ball.PreDraw(BallTexture, TextureID);//this is made once
-		ball.Draw(MatrixID, ModelMatrixID, ViewMatrixID, vec3(Ballx, 2, Ballz), vec3(0.25, 0.25, 0.25));
+		ball.Draw(MatrixID, ModelMatrixID, ViewMatrixID, vec3(Ballx, Bally, Ballz), vec3(0.25, 0.25, 0.25),eulerAngleXYZ(rotateX, 0.0f, rotateZ));
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 		glDisableVertexAttribArray(2);
@@ -225,19 +222,64 @@ int main(void)
 
 
 
-		if (glfwGetKey(window, GLFW_KEY_A) != GLFW_PRESS)
-			Ballx -= 0.1;
-		if (glfwGetKey(window, GLFW_KEY_D) != GLFW_PRESS)
-			Ballx += 0.1;
-		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		if (glfwGetKey(window, GLFW_KEY_LEFT) != GLFW_PRESS)
+{ Ballx -= BallSpeed;
+rotateZ+=0.02f;
+}
+		if (glfwGetKey(window, GLFW_KEY_RIGHT) != GLFW_PRESS)
+			
+{rotateZ-=0.02f;
+Ballx += BallSpeed;
+}
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 		{
-			Ballz += 0.1;
+rotateX+=0.02f;
+			Ballz += BallSpeed;
+			Z++;
 		}
-		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 		{
-			Ballz -= 0.1;
+rotateX-=0.02f;
+			Z--;
+			Ballz -= BallSpeed;
 		}
+
+		if (Z== 565 && ZZ ==0)
+		{
+			Ballx = 0;
+			Bally = 4;
+			Ballz = -32;
+			CarSpeed = 0.1;
+			PlateSpeed = 0.1;
+			BallSpeed = 0.15;
+			 PlateSpeed1 = PlateSpeed + 0.035;
+			 CarSpeed1 = CarSpeed + 0.015;
+			CarSpeed2 = CarSpeed + 0.02;
+			ZZ = 1;
 		
+		}
+
+
+		if (Z == 1130 && ZZ ==1)
+		{
+			Ballx = 0;
+			Bally = 4;
+			Ballz = -32;
+			CarSpeed = 0.16;
+			PlateSpeed = 0.16;
+			BallSpeed = 0.18;
+			PlateSpeed1 = PlateSpeed + 0.035;
+			CarSpeed1 = CarSpeed + 0.015;
+			CarSpeed2 = CarSpeed + 0.02;
+			ZZ = 2;
+		}
+		if (Z >= 1700 && ZZ >=2)
+		{
+			Bally += BallSpeed;
+			ZZ++;
+			if ( ZZ == 300 )
+				glfwTerminate();
+		}
 		Car1.PreDraw(Car1Texture, TextureID);
 		if (movement > -68)
 		{

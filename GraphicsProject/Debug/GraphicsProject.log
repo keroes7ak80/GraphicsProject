@@ -1,23 +1,23 @@
 ﻿  Source.cpp
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(167): warning C4101: 'p5': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(167): warning C4101: 'Bp5': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Tp2': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(166): warning C4101: 'Lp4': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(168): warning C4101: 'Bp6': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Lp2': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Rp2': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(167): warning C4101: 'Rp5': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(167): warning C4101: 'Lp5': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(168): warning C4101: 'Rp6': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(166): warning C4101: 'p4': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'p2': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(166): warning C4101: 'Bp4': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(166): warning C4101: 'Tp4': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Bp2': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(168): warning C4101: 'Lp6': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(168): warning C4101: 'p6': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(168): warning C4101: 'Tp6': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(167): warning C4101: 'Tp5': unreferenced local variable
-d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(166): warning C4101: 'Rp4': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'p5': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Bp5': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(161): warning C4101: 'Tp2': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(163): warning C4101: 'Lp4': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(165): warning C4101: 'Bp6': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(161): warning C4101: 'Lp2': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(161): warning C4101: 'Rp2': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Rp5': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Lp5': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(165): warning C4101: 'Rp6': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(163): warning C4101: 'p4': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(161): warning C4101: 'p2': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(163): warning C4101: 'Bp4': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(163): warning C4101: 'Tp4': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(161): warning C4101: 'Bp2': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(165): warning C4101: 'Lp6': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(165): warning C4101: 'p6': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(165): warning C4101: 'Tp6': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(164): warning C4101: 'Tp5': unreferenced local variable
+d:\computer engineering\graphics\graphicsproject\graphicsproject\source.cpp(163): warning C4101: 'Rp4': unreferenced local variable
   GraphicsProject.vcxproj -> D:\Computer Engineering\Graphics\GraphicsProject\Debug\GraphicsProject.exe
   GraphicsProject.vcxproj -> D:\Computer Engineering\Graphics\GraphicsProject\Debug\GraphicsProject.pdb (Full PDB)
